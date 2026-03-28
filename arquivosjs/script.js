@@ -1,4 +1,7 @@
 const perguntas = [
+
+/* Nível 01*/
+
   {
     pergunta:
       "Em programação, uma sequência de instruções executadas na ordem em que aparecem é chamada de:",
@@ -17,21 +20,46 @@ const perguntas = [
   },
   {
     pergunta:
-      "Considere o algoritmo: se número > 10 então mostrar 'Grande', senão mostrar 'Pequeno'. Se número = 10, o programa mostrará:",
+      "Considere um programa que calcula a raiz quadrada de um número x. Qual deve ser a pré-condição para que o programa funcione corretamente?",
+    opcoes: [
+      "x > 0",
+      "x >= 0",
+      "x < 0",
+      "x pode ser qualquer valor",
+    ],
+    correta: 1,
+  },
+  {
+    pergunta:
+      "Considere o algoritmo: = int a = 5; | int b = 3 | int soma; | soma = a + b; Qual é a pós-condição correta após a execução?",
+    opcoes: [
+      "a > b",
+      "soma = a + b",
+      "a = soma",
+      "b = soma",
+    ],
+    correta: 1,
+  },
+
+/* Nível 02*/
+
+  {
+    pergunta:
+      "Considere o algoritmo: if (numero > 10) | { printf('Grande');} | else { printf('Pequeno'); }, o programa mostrará:",
     opcoes: ["Grande", "Pequeno", "Erro", "Nada"],
     correta: 1,
   },
   {
-    pergunta: "Determine o valor de X: x = 5 | x = x + 3 | mostrar x",
+    pergunta: "Determine o valor de X: int x = 5 | x = x + 3 | printf('%d', x);",
     opcoes: ["3", "5", "8", "15"],
     correta: 2,
   },
   {
     pergunta:
-      "Qual é o principal problema no algoritmo: x = 10 | se x > 5 mostrar 'A' senão mostrar 'B'?",
+      "Qual é o principal problema no algoritmo: int x = 10  if (x > 5) printf('A') | else printf('B')?",
     opcoes: [
-      "Falta identação/bloco",
-      "A variável não existe",
+      "Falta de chaves {} para definir o bloco do if",
+      "A variável x não foi declarada",
       "O número é inválido",
       "O programa está correto",
     ],
@@ -50,15 +78,60 @@ const perguntas = [
   },
   {
     pergunta:
-      "Observe o algoritmo: x = 2 | enquanto x < 10 { x = x * 2; mostrar x } Quais números podem ser exibidos?",
+      "Considere o cálculo da média: media = soma/quantidade; Qual deve ser a pré-condição para evitar erro de execução?",
+    opcoes: [
+      "soma >= 0",
+      "quantidade > 0",
+      "soma > quantidade",
+      "quantidade >= soma",
+    ],
+    correta: 1,
+  },
+
+/* Nível 03*/
+
+  {
+    pergunta:
+      "Considere o algoritmo: int i = 1;  int produto = 1; int soma = 0; | while (i <= n) { soma = soma + i; | i = i + 1; Durante a execução do laço, qual é um possível invariante de laço?",
+    opcoes: [
+      "i <= n",
+      "soma >= 0",
+      "soma contém a soma dos valores de 1 até i-1",
+      "soma = n",
+    ],
+    correta: 2,
+  },
+  {
+    pergunta:
+      "Observe o algoritmo: int x = 2 | while (x < 10) { x = x * 2; printf('%d', x); } Quais números podem ser exibidos?",
     opcoes: ["4 8 16", "2 4 8", "4 8", "2 4 8 16"],
     correta: 0,
   },
   {
     pergunta:
-      "Considere o algoritmo: x = 2, y = 3, z = 0 | enquanto x < 10 { z = z + y; x = x + 2; y = y + 1 } mostrar z. Qual o valor final?",
+      "Considere de código: int i x = 5; | int y; | y = x +2; | Se a Pré condição é: x > 0 ",
+    opcoes: [
+      "y > 2",
+      "y > 0",
+      "y > x",
+      "x > y"],
+    correta: 0,
+  },
+  {
+    pergunta:
+      "Considere o algoritmo: int x = 2, y = 3, z = 0 | while (x < 10) { z = z + y; x = x + 2; y = y + 1 } printf('%d', z); Qual o valor final?",
     opcoes: ["15", "18", "21", "25"],
     correta: 1,
+  },
+  {
+    pergunta:
+      "Considere o algoritmo: int i = 1;  int produto = 1; | while (i<=n) { produto = produto * i; i=i+1;} Esse algoritmo calcula o fatorial de n. Qual é a pós-condição correta?",
+    opcoes: [
+      "Produto = i",
+      "Produto = i!",
+      "Produto = (i-1)!",
+      "Produto =n!"],
+    correta: 2,
   },
 ];
 
