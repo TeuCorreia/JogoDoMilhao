@@ -1,49 +1,64 @@
-let acumulado = 0;
+const perguntas = [
+  {
+    pergunta: "Qual é o planeta mais próximo do Sol?",
+    opcoes: ["Vênus", "Marte", "Mercúrio", "Júpiter"],
+    correta: 2,
+  },
+  {
+    pergunta: "Quanto é 2 + 2?",
+    opcoes: ["3", "4", "5", "6"],
+    correta: 1,
+  },
+  {
+    pergunta: "Qual a capital do Brasil?",
+    opcoes: ["Rio de Janeiro", "São Paulo", "Brasília", "Salvador"],
+    correta: 2,
+  },
+];
 
-const valorElemento = document.getElementById("valor-acumulado");
+let perguntaAtual = 0;
+let pontuacao = 0;
 
-const gruposDeAlternativas = document.querySelectorAll(".alternativas");
+const perguntaBox = document.querySelector(".pergunta-box");
+const alternativas = document.querySelectorAll(".alternativa");
 
-gruposDeAlternativas.forEach(grupo => {
+function carregarPergunta() {
+  let q = perguntas[perguntaAtual];
 
-    const alternativas = grupo.querySelectorAll(".alternativa");
+  perguntaBox.textContent = q.pergunta;
 
-    alternativas.forEach(alternativa => {
+  alternativas.forEach((alt, index) => {
+    alt.textContent = index + 1 + ") " + q.opcoes[index];
+  });
+}
 
-        alternativa.addEventListener("click", () => {
-
-            if (grupo.classList.contains("respondida")) return;
-
-            grupo.classList.add("respondida");
-
-            const correta = alternativa.getAttribute("data-correta") === "true";
-
-            if (correta) {
-                acumulado += 125000;
-                alternativa.style.backgroundColor = "green";
-            } else {
-                acumulado -= 50000;
-                alternativa.style.backgroundColor = "red";
-            }
-
-            if (acumulado < 0) acumulado = 0;
-
-            alternativas.forEach(alt => {
-                if (alt.getAttribute("data-correta") === "true") {
-                    alt.style.backgroundColor = "green";
-                }
-            });
-
-            atualizarTela();
-        });
-
-    });
-
+alternativas.forEach((alt, index) => {
+  alt.addEventListener("click", () => {
+    verificarResposta(index);
+  });
 });
 
-function atualizarTela() {
-    valorElemento.innerText = acumulado.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-    });
+function verificarResposta(respostaSelecionada) {
+  let q = perguntas[perguntaAtual];
+
+  if (respostaSelecionada === q.correta) {
+    pontuacao += 100000;
+
+    if (perguntaAtual < perguntas.length - 1) {
+      alert("Acertou! 💰");
+      perguntaAtual++;
+      carregarPergunta();
+    } else {
+      alert("Você ganhou! 🏆 Total: R$ " + pontuacao);
+      window.location.href = "../index.html";
+    }
+  } else {
+    alert("Errou! 💥 Você perdeu tudo!");
+
+    pontuacao = 0;
+    perguntaAtual = 0;
+    carregarPergunta();
+  }
 }
+
+carregarPergunta();
