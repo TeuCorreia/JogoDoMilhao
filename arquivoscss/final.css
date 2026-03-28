@@ -1,0 +1,25 @@
+body {
+  background: #0b1d3a;
+  color: white;
+  font-family: Arial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.box {
+  background: #142850;
+  padding: 40px;
+  border-radius: 12px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: gold;
+  cursor: pointer;
+  font-size: 16px;
+}

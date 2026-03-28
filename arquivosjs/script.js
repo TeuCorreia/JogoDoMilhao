@@ -49,8 +49,8 @@ function verificarResposta(respostaSelecionada) {
       perguntaAtual++;
       carregarPergunta();
     } else {
-      alert("Você ganhou! 🏆 Total: R$ " + pontuacao);
-      window.location.href = "../index.html";
+      localStorage.setItem("pontuacao", pontuacao);
+      window.location.href = "../arquivoshtml/final.html";
     }
   } else {
     alert("Errou! 💥 Você perdeu tudo!");
