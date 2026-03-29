@@ -151,12 +151,10 @@ function verificarResposta(respostaSelecionada) {
     alert("Errou! ❌");
   }
 
-  // Avança pra próxima pergunta
   if (perguntaAtual < perguntas.length - 1) {
     perguntaAtual++;
     carregarPergunta();
   } else {
-    // Salva tudo no final
     localStorage.setItem("pontuacao", pontuacao);
     localStorage.setItem("acertos", acertos);
     localStorage.setItem("erros", erros);
