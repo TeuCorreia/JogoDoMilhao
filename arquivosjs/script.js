@@ -1,111 +1,73 @@
 const perguntas = [
   {
-    pergunta:
-      "Em programação, uma sequência de instruções executadas na ordem em que aparecem é chamada de:",
-    opcoes: ["Repetição", "Sequência", "Condição", "Variável"],
-    correta: 1,
-  },
-  {
-    pergunta: "Quais das alternativas não se encaixa como proposição lógica?",
+    pergunta: "O que é um algoritmo?",
     opcoes: [
-      "2+2=45",
-      "A Inglaterra é um país",
-      "Gosto do churrasco",
-      "Conte até 32",
+      "Um tipo de computador",
+      "Uma sequência de passos para resolver um problema",
+      "Um programa pronto",
+      "Um erro de sistema",
     ],
-    correta: 3,
-  },
-  {
-    pergunta:
-      "Considere um programa que calcula a raiz quadrada de um número x. Qual deve ser a pré-condição para que o programa funcione corretamente?",
-    opcoes: ["x > 0", "x >= 0", "x < 0", "x pode ser qualquer valor"],
     correta: 1,
   },
   {
-    pergunta:
-      "Considere o algoritmo: = int a = 5; | int b = 3 | int soma; | soma = a + b; Qual é a pós-condição correta após a execução?",
-    opcoes: ["a > b", "soma = a + b", "a = soma", "b = soma"],
+    pergunta: "Qual símbolo representa igualdade em programação?",
+    opcoes: ["=", "==", "!=", ">"],
     correta: 1,
   },
   {
-    pergunta:
-      "Considere o algoritmo: if (numero > 10) | { printf('Grande');} | else { printf('Pequeno'); }, o programa mostrará:",
-    opcoes: ["Grande", "Pequeno", "Erro", "Nada"],
-    correta: 1,
-  },
-  {
-    pergunta:
-      "Determine o valor de X: int x = 5 | x = x + 3 | printf('%d', x);",
-    opcoes: ["3", "5", "8", "15"],
+    pergunta: "Qual dessas é uma linguagem de programação?",
+    opcoes: ["HTML", "CSS", "JavaScript", "Google"],
     correta: 2,
   },
   {
-    pergunta:
-      "Qual é o principal problema no algoritmo: int x = 10  if (x > 5) printf('A') | else printf('B')?",
+    pergunta: "O que o comando 'if' faz?",
     opcoes: [
-      "Falta de chaves {} para definir o bloco do if",
-      "A variável x não foi declarada",
-      "O número é inválido",
-      "O programa está correto",
-    ],
-    correta: 0,
-  },
-  {
-    pergunta:
-      "Um programa deve mostrar 'Aprovado' apenas se: nota ≥ 7 e frequência ≥ 75%. Qual condição correta?",
-    opcoes: [
-      "nota >= 7 OU frequencia >= 75",
-      "nota >= 7 E frequencia >= 75",
-      "nota > 7 OU frequencia > 75",
-      "nota >= 7",
-    ],
-    correta: 1,
-  },
-  {
-    pergunta:
-      "Considere o cálculo da média: media = soma/quantidade; Qual deve ser a pré-condição para evitar erro de execução?",
-    opcoes: [
-      "soma >= 0",
-      "quantidade > 0",
-      "soma > quantidade",
-      "quantidade >= soma",
-    ],
-    correta: 1,
-  },
-  {
-    pergunta:
-      "Considere o algoritmo: int i = 1;  int produto = 1; int soma = 0; | while (i <= n) { soma = soma + i; | i = i + 1; Durante a execução do laço, qual é um possível invariante de laço?",
-    opcoes: [
-      "i <= n",
-      "soma >= 0",
-      "soma contém a soma dos valores de 1 até i-1",
-      "soma = n",
+      "Repete um código",
+      "Cria uma variável",
+      "Executa uma condição",
+      "Finaliza o programa",
     ],
     correta: 2,
   },
   {
-    pergunta:
-      "Observe o algoritmo: int x = 2 | while (x < 10) { x = x * 2; printf('%d', x); } Quais números podem ser exibidos?",
-    opcoes: ["4 8 16", "2 4 8", "4 8", "2 4 8 16"],
+    pergunta: "Qual o resultado de 5 + 3?",
+    opcoes: ["6", "7", "8", "9"],
+    correta: 2,
+  },
+  {
+    pergunta: "Para que serve uma variável?",
+    opcoes: [
+      "Guardar informações",
+      "Apagar dados",
+      "Desligar o computador",
+      "Executar um erro",
+    ],
     correta: 0,
   },
   {
-    pergunta:
-      "Considere de código: int i x = 5; | int y; | y = x +2; | Se a Pré condição é: x > 0 ",
-    opcoes: ["y > 2", "y > 0", "y > x", "x > y"],
-    correta: 0,
-  },
-  {
-    pergunta:
-      "Considere o algoritmo: int x = 2, y = 3, z = 0 | while (x < 10) { z = z + y; x = x + 2; y = y + 1 } printf('%d', z); Qual o valor final?",
-    opcoes: ["15", "18", "21", "25"],
+    pergunta: "Qual estrutura repete várias vezes?",
+    opcoes: ["if", "while", "print", "var"],
     correta: 1,
   },
   {
-    pergunta:
-      "Considere o algoritmo: int i = 1;  int produto = 1; | while (i<=n) { produto = produto * i; i=i+1;} Esse algoritmo calcula o fatorial de n. Qual é a pós-condição correta?",
-    opcoes: ["Produto = i", "Produto = i!", "Produto = (i-1)!", "Produto =n!"],
+    pergunta: "O que significa 'true'?",
+    opcoes: ["Falso", "Erro", "Verdadeiro", "Nulo"],
     correta: 2,
+  },
+  {
+    pergunta: "Qual o resultado de 10 / 2?",
+    opcoes: ["2", "3", "5", "10"],
+    correta: 2,
+  },
+  {
+    pergunta: "O que o comando 'print' faz?",
+    opcoes: [
+      "Apaga dados",
+      "Mostra algo na tela",
+      "Cria variável",
+      "Fecha o programa",
+    ],
+    correta: 1,
   },
 ];
 
@@ -114,8 +76,7 @@ let erros = 0;
 
 let perguntaAtual = 0;
 const premios = [
-  500, 1000, 2000, 5000, 10000, 20000, 50000, 100000, 200000, 300000, 400000,
-  500000, 600000, 700000, 800000, 900000, 1000000,
+  1000, 5000, 10000, 50000, 100000, 200000, 300000, 500000, 800000, 1000000,
 ];
 
 let pontuacao = 0;
