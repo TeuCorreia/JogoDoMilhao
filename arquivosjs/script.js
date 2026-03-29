@@ -1,7 +1,4 @@
 const perguntas = [
-
-/* Nível 01*/
-
   {
     pergunta:
       "Em programação, uma sequência de instruções executadas na ordem em que aparecem é chamada de:",
@@ -21,28 +18,15 @@ const perguntas = [
   {
     pergunta:
       "Considere um programa que calcula a raiz quadrada de um número x. Qual deve ser a pré-condição para que o programa funcione corretamente?",
-    opcoes: [
-      "x > 0",
-      "x >= 0",
-      "x < 0",
-      "x pode ser qualquer valor",
-    ],
+    opcoes: ["x > 0", "x >= 0", "x < 0", "x pode ser qualquer valor"],
     correta: 1,
   },
   {
     pergunta:
       "Considere o algoritmo: = int a = 5; | int b = 3 | int soma; | soma = a + b; Qual é a pós-condição correta após a execução?",
-    opcoes: [
-      "a > b",
-      "soma = a + b",
-      "a = soma",
-      "b = soma",
-    ],
+    opcoes: ["a > b", "soma = a + b", "a = soma", "b = soma"],
     correta: 1,
   },
-
-/* Nível 02*/
-
   {
     pergunta:
       "Considere o algoritmo: if (numero > 10) | { printf('Grande');} | else { printf('Pequeno'); }, o programa mostrará:",
@@ -50,7 +34,8 @@ const perguntas = [
     correta: 1,
   },
   {
-    pergunta: "Determine o valor de X: int x = 5 | x = x + 3 | printf('%d', x);",
+    pergunta:
+      "Determine o valor de X: int x = 5 | x = x + 3 | printf('%d', x);",
     opcoes: ["3", "5", "8", "15"],
     correta: 2,
   },
@@ -87,9 +72,6 @@ const perguntas = [
     ],
     correta: 1,
   },
-
-/* Nível 03*/
-
   {
     pergunta:
       "Considere o algoritmo: int i = 1;  int produto = 1; int soma = 0; | while (i <= n) { soma = soma + i; | i = i + 1; Durante a execução do laço, qual é um possível invariante de laço?",
@@ -110,11 +92,7 @@ const perguntas = [
   {
     pergunta:
       "Considere de código: int i x = 5; | int y; | y = x +2; | Se a Pré condição é: x > 0 ",
-    opcoes: [
-      "y > 2",
-      "y > 0",
-      "y > x",
-      "x > y"],
+    opcoes: ["y > 2", "y > 0", "y > x", "x > y"],
     correta: 0,
   },
   {
@@ -126,16 +104,20 @@ const perguntas = [
   {
     pergunta:
       "Considere o algoritmo: int i = 1;  int produto = 1; | while (i<=n) { produto = produto * i; i=i+1;} Esse algoritmo calcula o fatorial de n. Qual é a pós-condição correta?",
-    opcoes: [
-      "Produto = i",
-      "Produto = i!",
-      "Produto = (i-1)!",
-      "Produto =n!"],
+    opcoes: ["Produto = i", "Produto = i!", "Produto = (i-1)!", "Produto =n!"],
     correta: 2,
   },
 ];
 
+let acertos = 0;
+let erros = 0;
+
 let perguntaAtual = 0;
+const premios = [
+  500, 1000, 2000, 5000, 10000, 20000, 50000, 100000, 200000, 300000, 400000,
+  500000, 600000, 700000, 800000, 900000, 1000000,
+];
+
 let pontuacao = 0;
 
 const perguntaBox = document.querySelector(".pergunta-box");
@@ -161,22 +143,25 @@ function verificarResposta(respostaSelecionada) {
   let q = perguntas[perguntaAtual];
 
   if (respostaSelecionada === q.correta) {
-    pontuacao += 100000;
-
-    if (perguntaAtual < perguntas.length - 1) {
-      alert("Acertou! 💰");
-      perguntaAtual++;
-      carregarPergunta();
-    } else {
-      localStorage.setItem("pontuacao", pontuacao);
-      window.location.href = "../arquivoshtml/final.html";
-    }
+    pontuacao = premios[perguntaAtual];
+    acertos++;
+    alert("Acertou! 💰 Pontuação: " + pontuacao);
   } else {
-    alert("Errou! 💥 Você perdeu tudo!");
+    erros++;
+    alert("Errou! ❌");
+  }
 
-    pontuacao = 0;
-    perguntaAtual = 0;
+  // Avança pra próxima pergunta
+  if (perguntaAtual < perguntas.length - 1) {
+    perguntaAtual++;
     carregarPergunta();
+  } else {
+    // Salva tudo no final
+    localStorage.setItem("pontuacao", pontuacao);
+    localStorage.setItem("acertos", acertos);
+    localStorage.setItem("erros", erros);
+
+    window.location.href = "../arquivoshtml/final.html";
   }
 }
 

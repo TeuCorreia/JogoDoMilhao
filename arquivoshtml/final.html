@@ -2,7 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <title>Vitória</title>
+    <title>Resultado Final</title>
     <link rel="stylesheet" href="../arquivoscss/final.css" />
     <link rel="stylesheet" href="../arquivoscss/jogar.css" />
   </head>
@@ -14,7 +14,7 @@
     ></audio>
 
     <div class="box">
-      <h1>🏆 Parabéns!</h1>
+      <h1>🏆 Resultado Final</h1>
       <p id="mensagem"></p>
 
       <br />
@@ -27,6 +27,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
     <script>
       function soltarConfete() {
         confetti({
@@ -36,20 +37,39 @@
         });
       }
 
-      soltarConfete();
-    </script>
-
-    <script>
       const som = document.getElementById("somVitoria");
 
       window.onload = () => {
+        let pontuacao = localStorage.getItem("pontuacao") || 0;
+        let acertos = localStorage.getItem("acertos") || 0;
+        let erros = localStorage.getItem("erros") || 0;
+
+        let mensagem = document.getElementById("mensagem");
+
+        mensagem.innerHTML = `
+          💰 Pontuação final: <strong>${pontuacao}</strong><br><br>
+          ✅ Acertos: <strong>${acertos}</strong><br>
+          ❌ Erros: <strong>${erros}</strong>
+        `;
+
+        // Mensagens dinâmicas
+        if (pontuacao == 1000000) {
+          mensagem.innerHTML += "<br><br>🔥 VOCÊ ZEROU O JOGO! 🔥";
+        } else if (acertos > erros) {
+          mensagem.innerHTML += "<br><br>👏 Mandou bem!";
+        } else {
+          mensagem.innerHTML += "<br><br>😅 Dá pra melhorar!";
+        }
+
+        soltarConfete();
+
         som.play().catch(() => {
           console.log("Autoplay bloqueado 😢");
         });
       };
 
       function voltarInicio() {
-        som.play(); // toca som ao clicar também
+        som.play();
         window.location.href = "../index.html";
       }
     </script>
